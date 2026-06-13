@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heios</title> <!-- ✏️ Page title -->
   <link rel="icon" type="image/x-icon" href="source/spinner-clear@2x.png">
-  <meta name="description" content="heios's portfolio." />
+  <meta name="description" content="fuyu's portfolio." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent:      #FEA3BB;  /* ✏️ Main accent color */
+      --accent:      #697bb2;  /* ✏️ Main accent color */
       --text-1:      #ffffff;  /* ✏️ Primary text */
       --text-2:      #b9bbbe;  /* ✏️ Secondary text */
       --text-3:      #727272;  /* ✏️ Muted text */
@@ -39,7 +39,7 @@
     /* Loader */
     #loader {
       position: fixed; inset: 0; z-index: 1000;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
       background: var(--bg); transition: opacity .6s, visibility .6s;
     }
     #loader.hidden { opacity: 0; visibility: hidden; }
@@ -48,21 +48,21 @@
       border: 3px solid rgba(255,255,255,.1); border-top-color: var(--accent);
       animation: spin .9s linear infinite;
     }
-    .ring-text { font-size: .85rem; letter-spacing: .25em; color: var(--text-3); text-transform: uppercase; }
+    .ring-text { font-size: 14px; letter-spacing: .25em; color: var(--text-3); text-transform: uppercase; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* Layout */
     main {
       position: relative; z-index: 10; height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 3rem 1.5rem 2rem; overflow: hidden;
+      padding: 48px 24px 32px; overflow: hidden;
     }
 
     /* Card */
     .card {
       width: 100%; max-width: 680px; max-height: 90vh; text-align: center;
       background: var(--card-bg); border: 1px solid var(--accent); border-radius: 20px;
-      padding: 3rem 2.5rem 2.5rem;
+      padding: 48px 40px 40px;
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(18px);
       box-shadow: 0 32px 80px rgba(0,0,0,.55), 0 0 60px color-mix(in srgb, var(--accent) 35%, transparent);
       opacity: 0; transform: translateY(28px);
@@ -73,7 +73,7 @@
     .card.show { opacity: 1; transform: none; }
 
     /* Avatar */
-    .avatar-wrap { width: 120px; height: 120px; margin: 0 auto 1.5rem; }
+    .avatar-wrap { width: 120px; height: 120px; margin: 0 auto 24px; }
     .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); display: block; } /* ✏️ Avatar border color */
 
     /* Name & subtitle */
@@ -82,30 +82,30 @@
       background: var(--accent); /* ✏️ Name gradient */
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .subtitle { font-size: .9rem; font-weight: 300; letter-spacing: .2em; color: var(--text-2); text-transform: uppercase; margin-bottom: 1.75rem; }
+    .subtitle { font-size: 14px; font-weight: 300; letter-spacing: .2em; color: var(--text-2); text-transform: uppercase; margin-bottom: 28px; }
 
     /* Divider */
-    .divider { width: 60px; height: 1px; margin: 0 auto 1.75rem;
+    .divider { width: 60px; height: 1px; margin: 0 auto 28px;
                background: linear-gradient(90deg, transparent, var(--accent), transparent); }
 
     /* Badges */
-    .badges { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 2rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 32px; }
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: .8rem; padding: 5px 14px; border-radius: 99px;
-      background: rgba(255,163,187,.1); border: 1px solid rgba(255,163,187,.25); /* ✏️ Badge color */
+      font-size: 13px; padding: 5px 14px; border-radius: 99px;
+      background: rgba(0,0,0,0.38); border: 2px solid rgb(105,123,178); /* ✏️ Badge color */
       color: var(--text-2);
     }
     .badge svg { width: 13px; height: 13px; opacity: .7; }
 
     /* Bio */
-    .bio { font-size: 20px; line-height: 1.85; color: var(--text-2); text-align: left; margin-bottom: 2rem; }
-    .bio p + p { margin-top: 1rem; }
+    .bio { font-size: 20px; line-height: 1.85; color: var(--text-2); text-align: left; margin-bottom: 32px; }
+    .bio p + p { margin-top: 16px; }
     .bio a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed; }
     .bio a:hover { color: #fff; }
 
     /* Social buttons */
-    .socials { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-top: 1.5rem; }
+    .socials { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
     .social-btn {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 15px; font-weight: 500; padding: 9px 20px; border-radius: 10px;
@@ -117,9 +117,9 @@
     .social-btn svg { width: 16px; height: 16px; }
 
     /* Footer */
-    footer { text-align: center; padding: 1rem 0 0; font-size: 13px; color: var(--text-2); margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.1); }
+    footer { text-align: center; padding: 16px 0 0; font-size: 13px; color: var(--text-2); margin-top: 24px; border-top: 1px solid rgba(255,255,255,.1); }
 
-    @media (max-width: 600px) { .card { padding: 2.25rem 1.5rem 2rem; } .name { font-size: 1.5rem; } }
+    @media (max-width: 600px) { .card { padding: 36px 24px 32px; } .name { font-size: 24px; } }
   </style>
 </head>
 <body>
